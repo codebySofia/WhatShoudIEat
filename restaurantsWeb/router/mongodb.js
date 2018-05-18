@@ -146,7 +146,7 @@ exports.addImgRes = function (input, callback) {
         }
     );
 };
-//Function for show delivery restaurants 
+//Function for show all delivery restaurants 
 exports.resAllDelivery = function (input, callback) {
     Res.find({ isDelivery: true }, function (err, results) {
         if (err) throw err;
@@ -158,7 +158,23 @@ exports.resAllDelivery = function (input, callback) {
         }
     }).skip((input - 1) * 10).limit(10).sort({ _id: -1 });;
 };
-//Function for show recommend restaurants 
+//Function for check delivery restaurants
+exports.resDelivery = function (input, callback) {
+    Res.find({ _id: input.qData, isDelivery: true }).skip((input.page - 1) * 10).limit(10).sort({ _id: -1 }).exec()
+        .then(function (results, err) {
+            if (err) return Promise.reject(err);
+            // console.log(results);
+            if (results.length == 0) {
+                // callback("DO NOT HAVE DELIVERY RESTAURANT!");                        
+                return Promise.reject(404);
+            } else {
+                callback(results);
+            }
+        }).catch(function (err) {
+            callback(err);
+        });
+};
+//Function for show all recommend restaurants 
 exports.resAllRecommend = function (input, callback) {
     Res.find({ recommend: true }, function (err, results) {
         if (err) throw err;
@@ -169,6 +185,21 @@ exports.resAllRecommend = function (input, callback) {
             callback(results);
         }
     }).skip((input - 1) * 10).limit(10).sort({ _id: -1 });;
+};
+//Function for check recommend restaurants 
+exports.resRecommend = function (input, callback) {
+    Res.find({ _id: input.qData, recommend: true }).skip((input.page - 1) * 10).limit(10).sort({ _id: -1 }).exec()
+        .then(function (results, err) {
+            if (err) return Promise.reject(err);
+            if (results.length == 0) {
+                // callback("DO NOT HAVE THIS RECOMMEND RESTAURANT!");
+                return Promise.reject(404);
+            } else {
+                callback(results);
+            }
+        }).catch(function (err) {
+            callback(err);
+        });
 };
 //Function for get all restaurants
 exports.getAllRes = function (callback) {
@@ -328,8 +359,7 @@ exports.addImgMenu = function (input, callback) {
             Menu.update({ _id: input._id }, { $push: { img: input.img } }, function (err, results) {
                 if (err) throw err;
                 callback(results);
-            }
-            );
+            });
         }
     })
 };
@@ -348,6 +378,18 @@ exports.menuRecommend = function (input, callback) {
         }).catch(function (err) {
             callback(err);
         });
+};
+//Function for show all recommend menu 
+exports.menuAllRecommend = function (input, callback) {
+    Menu.find({ recommend: true }, function (err, results) {
+        if (err) throw err;
+        // console.log(results);
+        if (results.length == 0) {
+            callback(404)
+        } else {
+            callback(results);
+        }
+    }).skip((input - 1) * 10).limit(10).sort({ _id: -1 });;
 };
 //Function find type menu
 exports.findType = function (input, callback) {
@@ -390,17 +432,6 @@ exports.allUser = function (callback) {
         callback(results);
     });
 };
-//Function for check exists user in db 
-exports.checkUser = function (input, callback) {
-    User.findOne({ _id: input._id }, function (err, user) {
-        if (err) throw err;
-        if (user != null) {
-            callback("oldUser");
-        } else {
-            callback("newUser");
-        }
-    });
-};
 //Function for insert User to db
 exports.insertUser = function (input, callback) {
     var newUser = new User(input);
@@ -410,6 +441,17 @@ exports.insertUser = function (input, callback) {
         // console.log(datas);
         else
             callback(datas);
+    });
+};
+//Function for check exists user in db 
+exports.checkUser = function (input, callback) {
+    User.findOne({ _id: input._id }, function (err, user) {
+        if (err) throw err;
+        if (user != null) {
+            callback("oldUser");
+        } else {
+            callback("newUser");
+        }
     });
 };
 //Function for login user
@@ -574,17 +616,6 @@ exports.addImgNew = function (input, callback) {
 };
 
 //Admin
-//Function for check admin
-exports.checkAdmin = function (input, callback) {
-    Admin.findOne({ _id: input._id }, function (err, user) {
-        if (err) throw err;
-        if (user != null) {
-            callback("oldUser");
-        } else {
-            callback("newUser");
-        }
-    });
-};
 //Function for insert Admin to db
 exports.insertAdmin = function (input, callback) {
     var newAdmin = new Admin(input);
@@ -594,6 +625,17 @@ exports.insertAdmin = function (input, callback) {
         // console.log(datas);
         else
             callback(datas);
+    });
+};
+//Function for check admin
+exports.checkAdmin = function (input, callback) {
+    Admin.findOne({ _id: input._id }, function (err, user) {
+        if (err) throw err;
+        if (user != null) {
+            callback("oldUser");
+        } else {
+            callback("newUser");
+        }
     });
 };
 //Function for authentication's Admin
