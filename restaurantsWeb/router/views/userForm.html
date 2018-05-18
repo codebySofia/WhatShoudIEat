@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <title>USER FORM</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+</head>
+
+<body>
+    <div class="panel panel-primary" style="margin:20px;">
+        <div class="panel-heading">
+            <h1 class="panel-title">User Form</h1>
+        </div>
+        <div class="panel-body">
+            <form action="http://127.0.0.1:8085/user/new-user" method="POST" enctype="application/x-www-form-urlencoded" data-toggle="validator" >
+                <div class="container">
+                    <div class="form-group row">
+                        <div class="form-group">
+                            <label for="example-text-input" class="col-2 col-form-label">userId</label>
+                            <input class="form-control" type="text" name="userId" id="example-text-input" required="true">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group">
+                            <label for="example-text-input" class="col-2 col-form-label">Name - Surname</label>
+                            <input class="form-control" type="text" name="txtName" id="example-text-input" required="true">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group">
+                            <label for="example-text-input" class="col-2 col-form-label">Profile Url</label>
+                            <input class="form-control" type="text" name="txtProfUrl" id="example-text-input">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-group">
+                            <label for="example-text-input" class="col-2 col-form-label">Accout Type</label>
+                            <select name="txtType" class="form-control" required="true"> 
+                                <option value="">--select--</option>
+                                <option value="web"> Website </option>
+                                <option value="fb"> Facebook </option>
+                                <option value="gg"> Google </option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="example-text-input" class="col-2 col-form-label">userId</label>
+                            <input class="form-control" type="text" name="userId" id="example-text-input">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="example-text-input" class="col-2 col-form-label">Name - Surname</label>
+                            <input class="form-control" type="text" name="txtName" id="example-text-input">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="example-text-input" class="col-2 col-form-label">Profile Url</label>
+                            <input class="form-control" type="text" name="txtProfUrl" id="example-text-input">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="example-text-input" class="col-2 col-form-label">Accout Type</label>
+                            <select name="txtType" class="form-control">
+                                <option>--select--</option>
+                                <option value="web"> Website </option>
+                                <option value="fb"> Facebook </option>
+                                <option value="gg"> Google </option>
+                            </select>
+                        </div>
+                    </div> -->
+                    <div class="help-block with-errors"></div>
+                    <div class="form-group row" align="center">
+                        <div class="form-group">
+                            <button style="width: 45%" type="submit" class="btn btn-primary">submit</button>
+                            &thinsp;
+                            <button style="width: 45%" type="reset" class="btn btn-secondary">cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+</body>
+
+</html>

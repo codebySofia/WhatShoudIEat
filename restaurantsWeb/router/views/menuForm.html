@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>MENU FORM</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+</head>
+
+<body>
+    <div class="panel panel-primary" style="margin:20px;">
+        <div class="panel-heading">
+            <h1 class="panel-title">Menu Form</h1>
+        </div>
+        <div class="panel-body">
+            <form action="http://127.0.0.1:8085/menu/new-menu" method="POST" enctype="application/x-www-form-urlencoded" data-toggle="validator">
+                <div class="container">
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="example-text-input" class="col-2 col-form-label">Menu</label>
+                            <input class="form-control" type="text" name="txtMenu" id="example-text-input" required="true">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="example-text-input" class="col-2 col-form-label">Restaurant (_id)</label>
+                            <input class="form-control" type="number" step="any" name="txtShop" id="example-text-input" placeholder="Restaurant must have in database." required="true">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="example-text-input" class="col-2 col-form-label">Price</label>
+                            <input class="form-control" type="number" step="any" min="0.01" name="txtPrice" id="example-text-input" required="true">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="example-text-input" class="col-2 col-form-label">Recommend</label>
+                            <select name="blRecommend" class="form-control" required="true">
+                                <option value="">--select--</option>                                                                
+                                <option value="true"> TRUE </option>
+                                <option value="false"> FALSE </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="example-text-input" class="col-2 col-form-label">Image</label>
+                            <input class="form-control" type="text" name="linkImg" id="example-text-input">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                                <label for="exampleFormControlTextarea1">Description</label>
+                                <textarea class="form-control" name="txtDesc" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row" align="center">
+                        <div class="form-group">
+                            <button style="width: 45%" type="submit" class="btn btn-primary">submit</button>
+                            &thinsp;
+                            <button style="width: 45%" type="reset" class="btn btn-secondary">cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+</body>
+</html>

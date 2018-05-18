@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>REGISTER</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+</head>
+
+<body>
+  <div class="panel panel-primary" style="margin:20px;">
+    <div class="panel-heading">
+      <h1 class="panel-title">Registration</h1>
+    </div>
+    <div class="panel-body">
+      <form action="http://127.0.0.1:8085/user/new-user" method="POST" enctype="application/x-www-form-urlencoded" data-toggle="validator">
+        <div class="container">
+          <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">userId</label>
+            <div class="col-10">
+              <input class="form-control" type="text" name="userId" id="example-text-input" placeholder="must be unique" required>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Name - Surname</label required>
+            <div class="col-10">
+              <input class="form-control" type="text" name="txtName" id="example-text-input">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-email-input" class="col-2 col-form-label">Email</label>
+            <div class="col-10">
+              <input class="form-control" type="email" name="txtEmail" id="example-text-input">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-password-input" class="col-2 col-form-label">Password</label>
+            <div class="col-10">
+              <input class="form-control" type="password" name="txtPwd" id="inputPassword" required>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-password-input" class="col-2 col-form-label">Comfirm Password</label>
+            <div class="col-10">
+              <input class="form-control" type="password" class="form-control" name="txtCfPwd" id="inputPasswordConfirm" data-match="#inputPassword"
+                data-match-error="these don't match" required>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-10">
+              <input class="form-control" type="hidden" name="txtType" value="web" id="example-text-input">
+            </div>
+          </div>
+          <div class="help-block with-errors"></div>
+          <div class="form-group row">
+            <div class="col-6">
+              <button type="submit" class="btn btn-primary">submit</button>
+              <button type="reset" class="btn btn-secondary">cancel</button>
+            </div>
+          </div>
+
+        </div>
+      </form>
+    </div>
+</body>
+
+</html>
