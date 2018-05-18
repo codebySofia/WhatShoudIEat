@@ -53,7 +53,7 @@ router.get("/chk-authen", function (req, res, next) {
     if (req.session.userId && (req.session.mode == "admin")){
         res.redirect("/admin/homepage");
     } else {
-        res.redirect("/admin/login");
+        res.redirect("/admin/login-form");
     }
 });
 //authentication BY loging page
