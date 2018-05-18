@@ -17,7 +17,7 @@ router.get("/homepage", function (req, res) {
     if (req.session.userId && (req.session.mode == "admin")) {
         res.sendFile(__dirname + "/views/homepage.html");
     } else {
-        res.sendFile(__dirname + "/views/loginForm.html");
+        res.redirect("/admin/login-form");
     }
 });
 //login
