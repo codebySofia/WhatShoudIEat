@@ -43,8 +43,6 @@ app.use("/new", newRouter);
 app.use("/admin",adminRouter);
 
 app.get("/", function (req, res) {
-    var keySess = session;
-    keySess.mode;
     res.send("Welcome !");
 });
 
