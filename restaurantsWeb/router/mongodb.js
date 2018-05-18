@@ -632,9 +632,9 @@ exports.checkAdmin = function (input, callback) {
     Admin.findOne({ _id: input._id }, function (err, user) {
         if (err) throw err;
         if (user != null) {
-            callback("oldUser");
+            callback("oldAdmin");
         } else {
-            callback("newUser");
+            callback("newAdmin");
         }
     });
 };

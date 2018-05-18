@@ -37,10 +37,10 @@ router.post("/new-admin", function (req, res) {
     };
 
     mongodb.checkAdmin(data, function (result) {
-        if (result == "oldUser") {
-            res.json("oldUser");
+        if (result == "oldAdmin") {
+            res.json("oldAdmin");
         }
-        else if (result == "newUser") {
+        else if (result == "newAdmin") {
             mongodb.insertAdmin(data, function (result) {
                 res.json(result);
             });
